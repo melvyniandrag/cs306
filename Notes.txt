@@ -1,0 +1,9 @@
+Data type affinity, primary keys, time, date.
+
+
+https://www.sqlite.org/datatype3.html
+
+https://www.sqlite.org/flextypegood.html
+
+https://www.sqlite.org/stricttables.html
+
