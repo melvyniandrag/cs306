@@ -1,9 +1,40 @@
 Data type affinity, primary keys, time, date.
 
+What if you insert a int larger than int max into the table?
+sqlite stores  8 byte integers. Wat is the largest one?
+
+What if you enter ascii hex data into the table?
+ ascii a is 0x97
+
 
 https://www.sqlite.org/datatype3.html
 
 https://www.sqlite.org/flextypegood.html
 
 https://www.sqlite.org/stricttables.html
+
+
+STRICT vs not strict tables:
+
+ Everything else about a STRICT table works the same as it does in an ordinary non-strict table:
+
+    CHECK constraints work the same.
+    NOT NULL constraints work the same.
+    FOREIGN KEY constraints work the same.
+    UNIQUE constraints work the same.
+    DEFAULT clauses work the same.
+    COLLATE clauses work the same.
+    Generated columns work the same.
+    ON CONFLICT clauses work the same.
+    Indexes work the same.
+    AUTOINCREMENT works the same.
+    An INTEGER PRIMARY KEY column is an alias for the rowid, but an INT PRIMARY KEY column is not.
+    The on-disk format for the table data is the same. 
+
+
+A WITHOUT ROWID table is an optimization that can reduce storage and processing requirements.
+
+In an ordinary SQLite table, the PRIMARY KEY is really just a UNIQUE index. The key used to look up records on disk is the rowid. The special "INTEGER PRIMARY KEY" column type in ordinary SQLite tables causes the column to be an alias for the rowid, and so an INTEGER PRIMARY KEY is a true PRIMARY KEY. But any other kind of PRIMARY KEYs, including "INT PRIMARY KEY" are just unique indexes in an ordinary rowid table.
+
+
 

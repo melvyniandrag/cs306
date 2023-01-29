@@ -1,0 +1,45 @@
+1. How would you store a date in a sqlite3 table? What column type? How should the date be formatted? Consider using this reference https://www.sqlitetutorial.net/sqlite-date/. Give two options if you can
+2. How would you store a time in a sqlite3 table? What column type? Give two options for doing this if you can.
+3. Create a table with sensible date and time columns. By sensible I mean the columns should hold date and time. Dont mark the column date but insert nonsense. Add 20 rows to the table.
+4. SQLite3 has lots of interesting advanced functionality. Consider the ON CONFLICT clause.
+   Read this example: https://database.guide/how-on-conflict-works-in-sqlite/
+
+	Create a table that has a "NOT NULL ON CONFLICT IGNORE" column
+           show that if you try to insert a row that has a NULL in that column, the insert is ignored.
+
+5) Continuing the example from above, using the reference from above, 
+    create a table that has a UNIQUE ON CONFLICT REPLACE column.
+    show that if you try to insert 10 rows , all with the sam evalue in that column, only the last one is saved in the database.
+
+	e.g. if you say column "first name" is UNIQUE ON CONFLICT REPLACE, then try to insert 10 rows with name "Maria", show that only the last of those rows is ultimately saved in the db.
+
+6. Check out this reference: https://www.sqlite.org/gencol.html
+	SQLITE has generated columns.
+	Create a table with 3 columns.
+	a) base
+	b) height
+	c) area
+	this table describes triangles. te area column should be a generated column ( virtual or stored, doesnt matter).
+		add 10 rows to this table. run select and show the data. The output should be correct. e.g. a triangle with base 10 and height 4 has area 20.
+
+7. Make sure you have sqlite  version >= 3.37 on your computer. According to the reference https://www.sqlite.org/stricttables.html, that is when strict tables were added.
+Create a strict table with 5 columns of different datatypes.
+
+8. In the flextypegood page for sqlite3 https://www.sqlite.org/flextypegood.html
+they explain why flexible typing. A big use case of sqlite3 is as an application file format. Instead of havig a bunch of .txt, .csv, .json, etc. files in your app, you can store all the data you need in a nice lightweight DB.
+They offer this as a good table for storing simple parameters:
+
+CREATE TABLE attribute(name TEXT PRIMARY KEY, value) WITHOUT ROWID;
+
+This maps some parameter to some value. The value has no type, it can be anything.
+
+They say that the things you might want to store are need a place to store miscellaneous attributes such as thumbnail images (as BLOB values), short pieces of text (such as the user's name), as well as numeric, date, and JSON values. 
+
+well I cant show you how to add png images as blobs yet. . . .we need another language like python or java or anything to do this. 
+I want you to add the following rows:
+name -> a name
+age -> age
+date of registration -> some date
+json pet names -> add a json string
+
+Then select the rows and show what you got.
