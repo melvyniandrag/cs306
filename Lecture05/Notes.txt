@@ -1,3 +1,10 @@
+#
+#
+# IGNORE THIS!
+# These are the professors notes taken while reading and prepping the class.
+# They are not structured at all, just random interesting stuff copy and pasted.
+#
+
 Data type affinity, primary keys, time, date.
 
 
