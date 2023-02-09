@@ -1,18 +1,3 @@
-"""
-This script demonstrates how ORM works.
-ORM = Object relational mapping.
-SQLAlchemy is a popular Python library that people use to extract rows from
-a database and turn the data into an object.
-Then the object is useable in your program.
-
-To run this you need to:
-1. Install Python3 on your computer
-2. Open a command prompt and type "pip install sqlalchemy" to install the sqlalchemy library
-3. Run the script by typing "python python_orm.py"
-4. Then have a look in the folder you ran the script in and you should see a database!
-   You can use the sqlite3 command line to investigate the db and verify that your python code worked.
-"""
-
 from sqlalchemy import create_engine, Column, Integer, String, Float, ForeignKey# For all supported datatypes, see https://docs.sqlalchemy.org/en/14/core/types.html
 from sqlalchemy.orm import sessionmaker, declarative_base
 
@@ -38,13 +23,6 @@ class Student(BaseClass):
 
 class GothicCard(BaseClass):
 	__tablename__ = "GothicCard"
-	# Note: if you uncomment this rownumber line and comment out the other
-	# then you run the script, NO tables are created. Why?
-	# Remember that sqlite is ACID compliant / transactional DB
-	# So if there is any error before you Commit(), then nothing happens 
-	# at all.
-	# Look in the main part of the code and you will see that there is a commit() method.
-	#rownumber = Column("rownumber", Integer)
 	rownumber = Column("rownumber", Integer, primary_key=True)
 	funds = Column("funds", Float)
 	number = Column(String, ForeignKey("students.id_number"))
